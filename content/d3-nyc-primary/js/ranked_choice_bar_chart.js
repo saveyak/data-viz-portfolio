@@ -18,8 +18,8 @@
 var tickDuration = 2000;
 var animationDuration = 500 
 var top_n = 15;
-var height = 600;
-var width = 960;
+var height = 500;
+var width = 1.6 * height;
 
 //Create SVG
 
