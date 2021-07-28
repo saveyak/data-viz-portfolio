@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scrollytelling</title>
+
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+
+
+</head>
+
+<body>
+
+  <!-- Scrollama Container -->
+  <main id="top">
+
+    <!-- OPTIONAL: Scrollytelling Intro -->
+    <section id="intro" class="header-container">
+      <h1>The Cost of Inequality</h1>
+      <h3>Visualizing the funding gap between Black and White students</h3>
+      <p><em>By Sharon Lurye</em></p>
+    </section>
+
+    <!-- Main Scrollytelling Section -->
+    <section id="scrollytelling">
+      <p>In the United States, local property taxes provide much of the funding for public schools. But this creates an inherent disparity: the wealthier the neighborhood, the more property is worth, and the more funding its schools get.</p>
+      <p>Because property values tend to be lower in predominantly Black neighborhoods than in White neighborhoods, predominantly Black schools often get less funding. That leads to disparities like these:</p>
+
+      <!-- Figure sticks in place and updates as the user scrolls -->
+      <figure>
+
+        <!-- This div just helps to center the images -->
+        <div style="text-align:center; height:100%; width:100%">
+          <!--Load individual images and define the styles to use when the page first loads-->
+          <!--The height is set to '100%'' and width to 'auto' to ensure that the aspect ratio is correct and the image is centered-->
+          <img src="images/maps/r_circle_map_just_va.png" alt = "A map of the Northeast region of the United States. There is a blue circle over Virginia. The size of the circle represents the size of the property tax revenue gap between Black and White students in that state. Virginia has a revenue gap of $1,294." height="100%" width="auto" id="imgV1"
+            style="opacity:0">
+          <!--All images are hidden when the page first loads.-->
+          <img src="images/maps/r_circle_map_va_md.png" alt="A map of the Northeast region of the United States. There are blue circles over Virginia and Maryland. The size of the circles represents the size of the property tax revenue gap between Black and White students in that state. Virginia has the smaller circle, representing a gap of $1,294. Maryland has a gap of $2,173." height="100%" width="auto" id="imgV2"
+            style="opacity:0">
+          <img src="images/maps/r_circle_map_revenue_gap_3_states.png" alt="A map of the Northeast region of the United States. There are blue circles over Virginia, Maryland, and Connecticut. The size of the circles represents the size of the property tax revenue gap between Black and White students in that state. Virginia has the smallest circle, representing a gap of $1,294. Maryland has a gap of $2,173. Connecticut has the largest circle, representing a gap of $4,295." height="100%" width="auto" id="imgV3" style="opacity:0">
+          <img src="images/maps/r_circle_map_rep_margins_3_states.png" alt="A map of the Northeast region of the United States. There are green circles over Virginia, Maryland, and Connecticut. The size of the circles represents the size of the property tax revenue gap between Black and White students in that state, minus state aid. Virginia has the smallest circle, representing a gap of $1,016. Maryland has a gap of $1,497. Connecticut has the largest circle, representing a gap of $1,574." height="100%" width="auto" id="imgV4" style="opacity:0">
+          <img src="images/line_chart_connecticut.png" alt="In Connecticut, the funding gap between Black and White students increased significantly from $586 in 2008 to $1,574 in 2018." height="100%" width="auto" id="imgV5" style="opacity:0">
+          <img src="images/table_3_states.png" alt="A table which shows data for three dates: Maryland, Virginia, and Connecticut. The columns show the state, the property tax gap between Black and White students in that state, how much state aid makes up for that gap, and the funding gap that remains. The remaining gap in 2018 was $1,497 for Maryland, $1,016 for Virginia, and $1,574 for Connecticut." height="100%" width="auto" id="imgV6" style="opacity:0">
+        </div>
+      </figure>
+
+      <!-- Prose for the story. Each div contains the text to show about the different versions of the figure -->
+      <article>
+        <!-- Each div must have the class that you specify in the myScrollama.setup() -->
+
+        <!-- Message #1 -->
+        <div class="step">
+          <p>In Virginia in 2018, the average property tax revenue per child was $1,016 more for White children than for Black children.</p>
+        </div>
+
+        <!-- Message #2 -->
+        <div class="step">
+          <p>In Maryland, White children got $1,497 more in property taxes to fund their education.</p>
+        </div>
+
+        <!-- Message #3 -->
+        <div class="step">
+          <p>In Connecticut, White children got $4,295 more.</p>
+        </div>
+
+        <!-- Message #4 -->
+        <div class="step">
+          <p>When state funding is taken into account, the disparity between Black and White students shrinks somewhat.</p>
+        </div>
+
+        <!-- Message #5 -->
+        <div class="step">
+          <p>Yet in Connecticut, that disparity actually got worse over a 10-year period.  
+          </p>
+        </div>
+
+        <!-- Message #6 -->
+        <div class="step">
+          <p>Professors Preston Green, Bruce Baker, and Joseph Oluwole argue that states should commit to filling the Black/White funding gap as a form of reparations for historic discrimination patterns in housing and education.
+          </p>
+        </div>
+        
+        <!-- Message #7 -->
+        <div class="step">
+          <p>"These corrections are past due," they write, "and race neutral alternatives are insufficient."
+          </p>
+        </div>
+
+      </article>
+
+    </section>
+
+    <!-- OPIONAL: Scrollytelling Outro -->
+    <section id="outro">
+      <p style="text-align : center"><em>Source:</em> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3766279">"School Finance, Race, and Reparations"</a> by Preston Green, Bruce Baker, and Joseph Oluwole. The authors calculated the difference in local property tax revenue between Black and White students using data from the U.S. Census Fiscal Survey of Local Governments. They calculated state aid based on the state's general funding formula. Data on the racial composition of schools came from the National Center for Education Statistics.</p> 
+      <p style="text-align : center"><br><a href="#top">Jump to top of page</a></p>
+      <p style="text-align : center"><a href="https://slurye.journoportfolio.com/data-projects/">See more data projects</a></p>
+      <p style="text-align : center"><em>Created with Scrollama, R, Mapshaper, QGIS, and Illustrator.</em></p>
+    </section>
+
+  </main>
+
+
+
+  <!-- Scrollama javaScript -->
+  <script src="https://unpkg.com/intersection-observer"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
